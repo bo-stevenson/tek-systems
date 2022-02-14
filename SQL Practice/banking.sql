@@ -16,6 +16,8 @@ FROM account as a
 JOIN product as p on a.PRODUCT_CD = p.PRODUCT_CD 
 JOIN individual as i on i.CUST_ID = a.CUST_ID;
 
-SELECT a.* FROM acc_transaction as a
-JOIN individual as i on i.CUST_ID = a.ACCOUNT_ID
+SELECT a.* FROM acc_transaction as t
+JOIN account as a on a.ACCOUNT_ID = t.ACCOUNT_ID
+JOIN individual as i on a.CUST_ID = i.CUST_ID
 WHERE i.LAST_NAME LIKE 'T%'; 
+
