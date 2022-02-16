@@ -33,7 +33,7 @@ WHERE e.jobTitle = "Sales Rep"
 GROUP BY e.employeeNumber
 ORDER BY SUM(d.quantityOrdered * d.priceEach) DESC;
 
-SELECT MONTHNAME(p.paymentDate) as "Month", YEAR(p.paymentDate) as "Year",
+SELECT DATE_FORMAT(p.paymentDate, '%M') as "Month", DATE_FORMAT(p.paymentDate, '%Y') as "Year",
 	format (SUM(p.amount), 2) as "Payments Received"
 FROM payments as p
 GROUP BY 2, 1
