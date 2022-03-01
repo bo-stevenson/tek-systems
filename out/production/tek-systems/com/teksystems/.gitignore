@@ -1,0 +1,10 @@
+
+/out/
+/.idea/
+/shelf/
+/workspace.xml
+*.iml
+General/.dbeaver
+General/.project
+.metadata/
+

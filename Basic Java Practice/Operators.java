@@ -47,11 +47,63 @@ public class Operators {
 
     }
 
+    public static void ProblemSetThree(){
+        int x = 7;
+        int y = 17;
+        int z;
+
+        z = x & y;
+        System.out.println(Integer.toBinaryString(z) + ", " + z);
+        //0001, 1
+        z = x|y;
+        System.out.println(Integer.toBinaryString(z) + ", " + z);
+        //10111 , 23
+    }
+
+    public static void ProblemSetFour(){
+        int x = 1;
+        System.out.println("X is "+ x);
+        x++;
+        System.out.println("After X is " + x);
+    }
+
+    public static void ProblemSetFive(){
+        int x = 1;
+
+        int y = 1;
+
+        int z = 1;
+
+        x = ++x;
+        System.out.println(x);
+        y = y++;
+        System.out.println(y);
+        z += 1;
+        System.out.println(z);
+    }
+
+    public static void ProblemSetSix(){
+        int x= 5;
+        int y = 8;
+        int sum = ++x + y;
+        System.out.println(sum); //14
+        x = 5;
+        sum = x++ + y;
+        System.out.println(sum); //13
+    }
+
     public static void main(String[] args){
         ProblemSetOne();
         System.out.println();
         ProblemSetTwo();
         System.out.println();
+        ProblemSetThree();
+        System.out.println();
+        ProblemSetFour();
+        System.out.println();
+        ProblemSetFive();
+        System.out.println();
+        ProblemSetSix();
     }
 
 }
