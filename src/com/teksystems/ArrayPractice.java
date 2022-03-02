@@ -61,14 +61,26 @@ public class ArrayPractice {
 
     public static void ProblemEight() {
         String arr [] = {"bo", "carter", "skie", "mazzy", "ric"};
+        System.out.println(Arrays.toString(arr));
+
+        String x = arr[0];
+        String y = arr[2];
+        arr[0] = y;
+        arr[2] = x;
+        System.out.println(Arrays.toString(arr));
+
     }
 
     public static void ProblemNine() {
-
+        int arr[] = {4,2,9,13,1,0};
+        System.out.println(Arrays.toString(arr));
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
     public static void ProblemTen() {
-
+        Object[] arr = {9,"bo","skie", "mazzy", 5.6};
+        System.out.println(Arrays.toString(arr));
     }
 
 
@@ -93,6 +105,11 @@ public class ArrayPractice {
         ProblemSix();
         System.out.println();
         ProblemSeven();
-
+        System.out.println();
+        ProblemEight();
+        System.out.println();
+        ProblemNine();
+        System.out.println();
+        ProblemTen();
     }
 }
