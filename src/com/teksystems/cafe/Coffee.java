@@ -38,7 +38,7 @@ public class Coffee extends Product{
 
         double price = super.getPrice();
         int quantity = super.getQuantity();
-        double subtotal = price * quantity;
-        return subtotal;
+       return (price * quantity);
+
     }
 }

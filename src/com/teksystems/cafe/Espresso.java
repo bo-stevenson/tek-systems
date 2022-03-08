@@ -28,8 +28,8 @@ public class Espresso extends Product{
             price = price + 1;
         }
 
-        double subtotal = price * quantity;
+        return price * quantity;
 
-        return subtotal;
+
     }
 }

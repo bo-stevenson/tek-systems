@@ -8,7 +8,7 @@ public class CafeApp {
 
         Coffee coffee = new Coffee("Coffee", 2.5, "Black", true, false);
         Espresso espresso = new Espresso("Espresso", 2.25, "Shot of Espresso", false, true);
-        Cappuccino cappuccino = new Cappuccino();
+        Cappuccino cappuccino = new Cappuccino("Cappuccino", 3.25,"Classic Cappuccino",true,false);
 
         Scanner input = new Scanner(System.in);
         System.out.println("How many coffees do you want?");

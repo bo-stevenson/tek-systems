@@ -18,6 +18,14 @@ public abstract class Product {
 
     }
 
+    //public abstract void addOptions(int option) throws InvalidOptionException;
+
+
+
+    //public abstract void printOptions();
+
+
+
     public abstract double calculateProductTotal();
 
 
