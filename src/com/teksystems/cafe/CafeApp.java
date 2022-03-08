@@ -19,7 +19,7 @@ public class CafeApp {
 
         System.out.println();
 
-        System.out.println("How many espressos would you like?");
+        System.out.println("How many espressos do you want?");
         int espressoQuantity = input.nextInt();
         espresso.setQuantity(espressoQuantity);
         double espressoSubtotal = espresso.calculateProductTotal();
@@ -27,7 +27,7 @@ public class CafeApp {
 
         System.out.println();
 
-        System.out.println("How many cappuccinos would you like?");
+        System.out.println("How many cappuccinos do you want?");
         int cappuccinoQuantity = input.nextInt();
         cappuccino.setQuantity(cappuccinoQuantity);
         double cappuccinoSubtotal = cappuccino.calculateProductTotal();
