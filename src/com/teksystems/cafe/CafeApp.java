@@ -4,42 +4,71 @@ import java.util.Scanner;
 
 public class CafeApp {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        Coffee coffee = new Coffee("Coffee", 2.5, "Black", true, false);
+        Coffee coffee = new Coffee("Coffee", 2.5, "Black Coffee", true, false);
         Espresso espresso = new Espresso("Espresso", 2.25, "Shot of Espresso", false, true);
-        Cappuccino cappuccino = new Cappuccino("Cappuccino", 3.25,"Classic Cappuccino",true,false);
+        Cappuccino cappuccino = new Cappuccino("Cappuccino", 3.25, "Classic Cappuccino", true, false);
 
+        Store store = new Store(coffee, espresso, cappuccino);
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+
+        store.printMenu();
         Scanner input = new Scanner(System.in);
-        System.out.println("How many coffees do you want?");
-        int coffeeQuantity = input.nextInt();
-        coffee.setQuantity(coffeeQuantity);
-        double coffeeSubtotal = coffee.calculateProductTotal();
-        System.out.println(coffee.getName() + " " + coffee.getDescription() + " Subtotal: " + coffeeSubtotal);
 
-        System.out.println();
+        while (input.hasNext()) {
+            if (input.hasNextInt()) {
 
-        System.out.println("How many espressos do you want?");
-        int espressoQuantity = input.nextInt();
-        espresso.setQuantity(espressoQuantity);
-        double espressoSubtotal = espresso.calculateProductTotal();
-        System.out.println(espresso.getName() + " " + espresso.getDescription() + " Subtotal: " + espresso.calculateProductTotal());
+                Product product = store.select(input.nextInt());
+                if (product == null) break;
+                input.nextLine();
 
-        System.out.println();
+                System.out.println("Select Quantity: ");
+                while (input.hasNext()) {
+                    if (input.hasNextInt()) {
+                        int quantity = input.nextInt();
+                        if (quantity > 0) {
+                            product.setQuantity(quantity);
+                            break;
+                        } else {
+                            System.out.println("Must be more than zero");
+                        }
+                    } else {
+                        System.out.println("Enter a number: ");
+                    }
+                    input.nextLine();
 
-        System.out.println("How many cappuccinos do you want?");
-        int cappuccinoQuantity = input.nextInt();
-        cappuccino.setQuantity(cappuccinoQuantity);
-        double cappuccinoSubtotal = cappuccino.calculateProductTotal();
-        System.out.println(cappuccino.getName() + " " + cappuccino.getDescription() + " Subtotal: " + cappuccino.calculateProductTotal());
+                }
 
-        System.out.println();
+                input.nextLine();
 
-        double salesSubtotal = coffeeSubtotal + espressoSubtotal + cappuccinoSubtotal;
-        double salesTax = salesSubtotal * 0.0625;
-        double salesTotal= salesSubtotal + salesTax;
-        System.out.printf("\nSubtotal: $%.2f\nSales Tax: $%.2f\nSales Total: $%.2f\n", salesSubtotal, salesTax, salesTotal);
+                System.out.println();
+                product.printOptions();
+                while (input.hasNext()) {
+                    if (input.hasNextInt()) {
+                        int option = input.nextInt();
+                        product.addOptions(option);
+                        break;
+                    } else {
+                        System.out.println("Enter a number: ");
+                    }
+                    input.nextLine();
+                }
 
+                shoppingCart.addProduct(product);
+                System.out.printf("%n%s added to cart", product.getName());
+
+                store.printMenu();
+
+
+            }else{
+                System.out.println("Enter a number: ");
+            }
+            input.nextLine();
+        }
+        input.close();
+        shoppingCart.checkout();
 
 
     }

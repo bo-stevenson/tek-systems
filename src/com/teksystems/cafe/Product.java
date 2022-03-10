@@ -18,16 +18,18 @@ public abstract class Product {
 
     }
 
-    //public abstract void addOptions(int option) throws InvalidOptionException;
+    public abstract void addOptions(int option);
 
-
-
-    //public abstract void printOptions();
-
-
+    public abstract void printOptions();
 
     public abstract double calculateProductTotal();
 
+    public abstract Product getBeverage();
+
+//    @Override
+//    public String toString() {
+//        return String.format("Item:\t%-16sPrice: $%.2d\tQty: %d\tSubtotal: $%.2f", name, price, quantity, calculateProductTotal());
+//    }
 
 
     public String getName() {
@@ -61,5 +63,6 @@ public abstract class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
 }
 
